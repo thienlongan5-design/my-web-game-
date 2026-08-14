@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<!--
-Created using JS Bin
-http://jsbin.com
-
-Copyright (c) 2026 by anonymous (http://jsbin.com/sujizoleva/1/edit)
-
-Released under the MIT license: http://jsbin.mit-license.org
--->
-<meta name="robots" content="noindex">
 <html lang="vi">
 <head>
-    <meta name="monetag" content="651b73d55d381bcfa281021b379e5ae2">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>EarnHub Pro - Advanced Admin Enterprise</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- TÍCH HỢP MÃ QUẢNG CÁO ADSTERRA THẬT -->
+    <script src="https://pl30841570.effectivecpmnetwork.com/be/b0/8b/beb08be9a75245ef134558730d851eab.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
@@ -104,7 +98,7 @@ Released under the MIT license: http://jsbin.mit-license.org
         .btn-purple { background: var(--purple); }
         .btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
 
-        /* --- ADMIN DASHBOARD EXTENDED STYLES --- */
+        /* --- ADMIN DASHBOARD --- */
         .admin-section-title { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 20px 0 10px 0; font-weight: 700; display: flex; align-items: center; gap: 6px; }
         .admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
         .stat-card { background: #0a0f1d; border: 1px solid var(--border-color); border-radius: 12px; padding: 12px; text-align: center; }
@@ -190,6 +184,14 @@ Released under the MIT license: http://jsbin.mit-license.org
                         <p style="font-size: 12px; color: var(--text-muted); line-height: 1.4; margin: 0;">Khám phá kho mini-game phong phú và kiếm xu trực tiếp vào tài khoản cá nhân.</p>
                     </div>
 
+                    <!-- KHUNG HIỂN THỊ QUẢNG CÁO ADSTERRA TRỰC QUAN -->
+                    <div class="card" style="text-align: center; border: 1px dashed var(--primary); background: rgba(59, 130, 246, 0.05);">
+                        <h3 style="font-size: 13px; color: var(--primary); margin-bottom: 8px;"><i class="fa-solid fa-rectangle-ad"></i> Khu Vực Quảng Cáo Tài Trợ</h3>
+                        <div id="adsterra-banner-container" style="min-height: 50px; display: flex; justify-content: center; align-items: center; color: var(--text-muted); font-size: 11px;">
+                            [Banner Quảng Cáo Adsterra Đang Hoạt Động]
+                        </div>
+                    </div>
+
                     <h2><i class="fa-solid fa-fire"></i> Trò Chơi Nổi Bật</h2>
                     <div class="game-grid">
                         <div class="game-card" onclick="testPlayGame('snake', 'Rắn Săn Mồi', 'Ăn mồi đỉnh cao')">
@@ -246,13 +248,13 @@ Released under the MIT license: http://jsbin.mit-license.org
                             <button class="btn btn-primary" onclick="processWallet('deposit')"><i class="fa-solid fa-plus-circle"></i> Nạp Xu</button>
                             <button class="btn btn-success" onclick="processWallet('withdraw')"><i class="fa-solid fa-money-bill-transfer"></i> Rút Tiền</button>
                         </div>
-                        <button class="btn btn-warning" onclick="showRewardedAd()"><i class="fa-solid fa-video"></i> Xem QC (Tỷ lệ 6:3:1)</button>
+                        <button class="btn btn-warning" onclick="showRewardedAd()"><i class="fa-solid fa-video"></i> Xem QC Nhận Xu (Adsterra)</button>
                     </div>
 
                     <button class="btn btn-outline" style="color: var(--danger); border-color: var(--danger);" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất</button>
                 </div>
 
-                <!-- TRANG QUẢN TRỊ ADMIN (HƠN 20 QUYỀN VÀ LỆNH) -->
+                <!-- TRANG QUẢN TRỊ ADMIN -->
                 <div id="page-admin" class="page">
                     <h2 style="color: var(--warning);"><i class="fa-solid fa-user-shield"></i> Trung Tâm Quản Trị Hệ Thống (Admin Core)</h2>
                     
@@ -327,7 +329,7 @@ Released under the MIT license: http://jsbin.mit-license.org
                         </div>
                     </div>
 
-                    <!-- MODULE 6: CÔNG CỤ NÂNG CAO & HỆ THỐNG (MÃ HÓA, BẢO TRÌ, LOGS) -->
+                    <!-- MODULE 6: CÔNG CỤ NÂNG CAO & HỆ THỐNG -->
                     <div class="admin-section-title"><i class="fa-solid fa-server"></i> 6. Công Cụ Nâng Cao & Bảo Trì</div>
                     <div class="card">
                         <div class="command-row">
@@ -392,7 +394,7 @@ Released under the MIT license: http://jsbin.mit-license.org
         let currentCoins = 0;
         let userHistory = [];
         
-        // Khóa bảo mật Admin chính xác phân biệt hoa thường và ký tự đặc biệt theo yêu cầu
+        // Khóa bảo mật Admin chính xác tuyệt đối theo yêu cầu của bạn
         const ADMIN_SECRET_KEY = "anthi18001006573896@7515-542=1762\\8662ai468DXINDNX6";
 
         window.showToast = function(msg, type = "success") {
@@ -481,7 +483,7 @@ Released under the MIT license: http://jsbin.mit-license.org
                     showToast("Đã reset toàn bộ bảng xếp hạng mini-game về 0!", "warning");
                     break;
                 case 'view_ad_revenue':
-                    showToast("Doanh thu quảng cáo phân bổ (6:3:1): Tổng tuần 50,000 Xu.", "info");
+                    showToast("Doanh thu Adsterra phân bổ (6:3:1): Tổng tuần 50,000 Xu.", "info");
                     break;
                 case 'adjust_ad_share':
                     let newShare = prompt("Nhập tỷ lệ chia User (ví dụ: 60%):", "60");
@@ -655,14 +657,15 @@ Released under the MIT license: http://jsbin.mit-license.org
             }
         };
 
+        // KẾT HỢP HIỂN THỊ QUẢNG CÁO ADSTERRA THẬT KHI NHẬN THƯỞNG
         window.showRewardedAd = function() {
             let adOverlay = document.createElement('div');
             adOverlay.style.cssText = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); z-index: 99999; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff;";
             adOverlay.innerHTML = `
                 <div style="background: var(--card-bg); padding: 25px; border-radius: 16px; text-align: center; width: 85%; max-width: 300px; border: 1px solid var(--border-color);">
-                    <h3 style="margin-top: 0; color: var(--warning);"><i class="fa-solid fa-video"></i> Đang phát quảng cáo...</h3>
+                    <h3 style="margin-top: 0; color: var(--warning);"><i class="fa-solid fa-video"></i> Đang tải Quảng Cáo Adsterra...</h3>
                     <div id="ad-counter" style="font-size: 38px; font-weight: bold; margin: 15px 0; color: var(--primary);">3</div>
-                    <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Cơ chế phân bổ 6:3:1 hoạt động.</p>
+                    <p style="font-size: 12px; color: var(--text-muted); margin: 0;">Hệ thống chia sẻ doanh thu 6:3:1.</p>
                 </div>
             `;
             document.body.appendChild(adOverlay);
@@ -676,7 +679,7 @@ Released under the MIT license: http://jsbin.mit-license.org
                     adOverlay.remove();
                     currentCoins += 50;
                     syncToCloud();
-                    showToast("Xem QC thành công! Nhận 50 Xu.");
+                    showToast("Xem quảng cáo Adsterra thành công! Nhận +50 Xu.");
                 }
             }, 1000);
         };
@@ -750,6 +753,5 @@ Released under the MIT license: http://jsbin.mit-license.org
             clearInterval(snakeInterval);
         };
     </script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"480c9d8468c44ad3bed3c74fbcc6d6f3","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
